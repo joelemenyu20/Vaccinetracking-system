@@ -1,20 +1,17 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package org.health.administration;
 
+import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
 
 /**
  *
@@ -35,6 +32,12 @@ public class User extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            String f = request.getParameter("fname");
+            String l = request.getParameter("lname");
+            String e = request.getParameter("email");
+            String u = request.getParameter("username");
+            String p = request.getParameter("password");
+            String r = request.getParameter("role");
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
@@ -42,31 +45,36 @@ public class User extends HttpServlet {
             out.println("<title>Servlet User</title>");            
             out.println("</head>");
             out.println("<body>");
-            String f = request.getParameter("fname");
-            String l = request.getParameter("lname");
-            String e = request.getParameter("email");
-            String u = request.getParameter("username");
-            String p = request.getParameter("password");
-            String r = request.getParameter("role");
+           
+            request.setAttribute("fname",f);
+            request.setAttribute("lname",l);
+            request.setAttribute("email",e);
+            request.setAttribute("username",p);
+            request.setAttribute("password",p);
+            request.setAttribute("role",r);
             
-            try{
-                Class.forName("com.mysql.jdbc.Driver");
-                try{
-                Connection co = DriverManager.getConnection("jdbc:mysql://localhost:3306/vaccineadmintracker", "root", "");
-                 
-                Statement st = co.createStatement();
-                st.executeUpdate("insert into users set first_name='"+f+"',last_name='"+l+"',email='"+e+"',username='"+u+"',password='"+p+"',role='"+r+"'");
-                out.println("successfully inserted, to view click<a href=''>View product</a>");
-                
-                }catch(SQLException z){
-                      out.println("error :"+z.getMessage());
-                }
-                
-                
-            }catch(ClassNotFoundException z){
-                out.println("error :"+z.getMessage());
-                        
-            }
+            //dispatching
+            RequestDispatcher rd = request.getRequestDispatcher("/Myjsps/Userdata.jsp");
+            rd.forward(request, response);
+            
+//            try{
+//                Class.forName("com.mysql.jdbc.Driver");
+//                try{
+//                Connection co = DriverManager.getConnection("jdbc:mysql://localhost:3306/vaccineadmintracker", "root", "");
+//                 
+//                Statement st = co.createStatement();
+//                st.executeUpdate("insert into users set first_name='"+f+"',last_name='"+l+"',email='"+e+"',username='"+u+"',password='"+p+"',role='"+r+"'");
+//                out.println("successfully inserted, to view click<a href=''>View product</a>");
+//                
+//                }catch(SQLException z){
+//                      out.println("error :"+z.getMessage());
+//                }
+//                
+//                
+//            }catch(ClassNotFoundException z){
+//                out.println("error :"+z.getMessage());
+//                        
+//            }
             out.println("</body>");
             out.println("</html>");
         }
