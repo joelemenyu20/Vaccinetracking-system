@@ -64,6 +64,25 @@
         <servlet-name>VaccineInventory</servlet-name>
         <url-pattern>/VaccineInventory</url-pattern>
     </servlet-mapping>
+    
+        <servlet>
+        <servlet-name>RegisterCentreServlet</servlet-name>
+        <servlet-class>org.health.health.RegisterCentreServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegisterCentreServlet</servlet-name>
+        <url-pattern>/RegisterCentreServlet</url-pattern>
+    </servlet-mapping>
+        <servlet>
+        <servlet-name>UpdateServlet</servlet-name>
+        <servlet-class>org.health.health.UpdateServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateServlet</servlet-name>
+        <url-pattern>/UpdateServlet</url-pattern>
+    </servlet-mapping>
+    
+    
     <session-config>
         <session-timeout>
             30
