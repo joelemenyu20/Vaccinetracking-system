@@ -3,27 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.user.login;
+package org.health.administration;
 
-import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 
 /**
  *
  * @author JOJO
  */
-public class loginValidation extends HttpServlet {
+public class Emaildata extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,59 +31,14 @@ public class loginValidation extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            String email = request.getParameter("email");
-            String password = request.getParameter("password");
-            int accounttype = 0;
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet loginValidation</title>");
+            out.println("<title>Servlet Emaildata</title>");            
             out.println("</head>");
             out.println("<body>");
-
-            try {
-                Class.forName("com.mysql.jdbc.Driver");
-                try {
-                    Connection co = DriverManager.getConnection("jdbc:mysql://localhost:3306/vaccineadmintracker", "root", "");
-                    PreparedStatement ps = co.prepareStatement("select * from users where email=? and password=?");
-                    ps.setString(1, email);
-                    ps.setString(2, password);
-
-                    ResultSet rs = ps.executeQuery();
-                    RequestDispatcher rd;
-                    while (rs.next()) {
-                        out.println("Inside while");
-                        if (rs.getString("email").equals(email) && rs.getString("password").equals(password)) {
-//                            rd = request.getRequestDispatcher("");
-                            String accountType = rs.getString("accounttype");
-                            if (accountType.equals("0")) {
-                                out.println("Logged in a");
-                                rd = request.getRequestDispatcher("PatientDashboard.jsp");
-                            } else {
-                                out.println("Logged in admin");
-                                rd = request.getRequestDispatcher("AdminDashboard.jsp");
-
-                            }
-                           // out.println("<script></script>");
-                           rd.forward(request, response);
-
-                        }
-
-                    }
-                    rd = request.getRequestDispatcher("index.");
-                    out.print("The credentials are incorrect ");
-                    rd.include(request, response);
-
-                } catch (SQLException z) {
-                    out.println("error :" + z.getMessage());
-                }
-
-            } catch (ClassNotFoundException z) {
-                out.println("error :" + z.getMessage());
-
-            }
-
+            out.println("<h1>Servlet Emaildata at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }

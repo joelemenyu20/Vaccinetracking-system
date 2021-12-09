@@ -10,28 +10,24 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Login Page</title>
-         <style>
+          <style>
             *{
                 font-family: 'Poppins', sans-serif;
             }
             
-            .form-container{
+            .form-data{
                 box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-                width:60%;
+                width:40%;
                 margin-left:auto;
                 margin-right:auto;
                 display:flex;
                 justify-content: center;
-                border-radius: 20px;
+                border-radius: 15px;
+                height:300px;
             }
             
-            .field-container{
-                margin:2em;
-                justify-content: center;
-
-            }
-            
-            .inpttxt{
+                        
+            .textinput{
                 border:0px solid black;
                 padding:1.5em;
                 border-radius:9px;
@@ -39,13 +35,8 @@
                 width:200px;
             }
             
-            .field-container-btn{
-                display:flex;
-                justify-content: center;
-            }
-            
-            .btn{
-                background-color:#ed5d15;
+            .button{
+                background-color:#6633ff;
                 padding:1em;
                 border-radius: 20px;
                 border:0px;
@@ -53,25 +44,32 @@
             }
         </style>
     </head>
-    <body style="background-color:">
+    <body style="background-color:#ccffcc">
         <h1 style="text-align: center ">LOGIN</h1>
-      <div class="form-container" >
+      <div class="form-data" >
           <div>
                 
-            <form action="/Vaccine-Administration-tracker/Registration" method="post">
-                   <div class="field-container">
-                       Email:
-                       <input class="inpttxt" type="email" name="email">
-                   </div>
-                   <div class="field-container">
-                       Password:
-                       <input class="inpttxt" type="password" name="password">
-                   </div>
-                   <div class="field-container-btn">
-                      <input class="btn" type="submit" name="sub" value="Login">
-                   </div>
-                  <a href="/Vaccine-Administration-tracker/Myjsps/UserRegistration.jsp">Register</a>
+            <form action="loginValidation" method="post">
+                <table>
+                   <tr>
+                       <td>Username:</td>
+                       <td><input class="textinput" type="email" name="email"></td>
+                   </tr>
+                   <tr>
+                       <td>Password:</td>
+                       <td><input class="textinput" type="password" name="password"></td>
+                   </tr>
+                   <tr>
+                       <td>
+                       <td><input class="button" type="submit" name="sub" value="Login"></td>
+                   </tr>
+                   <tr>
+                       <td>Don't have an account? </td>
+                       <td><a href="/Vaccine-Administration-tracker/Myjsps/UserRegistration.jsp">Register</a> </td>
+                   </tr>
+                </table>
             </form>  
+              
           </div>
             
       </div>
