@@ -11,18 +11,18 @@
             String p = request.getParameter("password");
             String r = request.getParameter("role");
 %>
-<%@taglib prefix="registration" uri="/WEB-INF/tlds/Mytags" %>
+<%@taglib prefix="mytags" uri="/WEB-INF/tlds/Mytags" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Save User</title>
     </head>
     
     <body>
         <h1>Successful</h1>
         
     </body>
-    <registration:Mytags table="users" values="${f},${l},${e},${u},${p},${r}"/>
+    <mytags:Mytags table="users" values="${f},${l},${e},${u},${p},${r}"/>
 </html>

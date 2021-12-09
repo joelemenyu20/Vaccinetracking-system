@@ -24,6 +24,22 @@
         <servlet-name>VaccineInventory</servlet-name>
         <servlet-class>org.health.vaccine.VaccineInventory</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UserAuthentication</servlet-name>
+        <servlet-class>org.user.login.UserAuthentication</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Patientdata</servlet-name>
+        <servlet-class>org.health.administration.Patientdata</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Emaildata</servlet-name>
+        <servlet-class>org.health.administration.Emaildata</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Certificatedata</servlet-name>
+        <servlet-class>org.health.administration.Certificatedata</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Registration</servlet-name>
         <url-pattern>/Registration</url-pattern>
@@ -45,12 +61,12 @@
         <url-pattern>/Myjsps/UserRegistration</url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name>Userdata</servlet-name>
-        <jsp-file>/Myjsps/Userdata.jsp</jsp-file>
+        <servlet-name>PatientRegistration</servlet-name>
+        <jsp-file>/Myjsps/PatientRegistration.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
-        <servlet-name>Userdata</servlet-name>
-        <url-pattern>/Myjsps/Userdata</url-pattern>
+        <servlet-name>PatientRegistration</servlet-name>
+        <url-pattern>/Myjsps/PatientRegistration</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>booking</servlet-name>
@@ -63,6 +79,38 @@
     <servlet-mapping>
         <servlet-name>VaccineInventory</servlet-name>
         <url-pattern>/VaccineInventory</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserAuthentication</servlet-name>
+        <url-pattern>/UserAuthentication</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>AdminDashboard</servlet-name>
+        <jsp-file>/AdminDashboard.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdminDashboard</servlet-name>
+        <url-pattern>/AdminDashboard</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>PatientDashboard</servlet-name>
+        <jsp-file>/PatientDashboard.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PatientDashboard</servlet-name>
+        <url-pattern>/PatientDashboard</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Patientdata</servlet-name>
+        <url-pattern>/Patientdata</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Emaildata</servlet-name>
+        <url-pattern>/Emaildata</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Certificatedata</servlet-name>
+        <url-pattern>/Certificatedata</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
